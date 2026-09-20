@@ -1,0 +1,10 @@
+{
+  "name": "trello-epic-tasks",
+  "version": "1.0.0",
+  "description": "Trello Power-Up: Epics und Tasks ohne REST-API (nur ein Board)",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/relations.test.js"
+  },
+  "license": "MIT"
+}
