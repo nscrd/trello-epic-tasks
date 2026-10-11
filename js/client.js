@@ -154,6 +154,7 @@ TrelloPowerUp.initialize({
 	},
 	
 	'card-buttons': async function (t) {
+		t.alert({message: 'card-buttons fired!', duration: 5});
 		console.log('[epic-tasks] card-buttons fired, card:', t.getContext().card);
 		let data;
 		try {
