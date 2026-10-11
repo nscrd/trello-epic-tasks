@@ -137,42 +137,31 @@ async function buildBadges(t, detail) {
 
 TrelloPowerUp.initialize({
 	'board-buttons': function (t) {
-		return [
-			{
-				text: 'Epic-Test', 
-				callback: function (t) {
-					return t.alert({message: 'Board-Button funktioniert!'}); 
-				}
-			}
-		];
+		return [];
 	},
 
 	'card-badges': function (t) {
-		return [
-			{text: 'TEST', color: 'blue'}
-		];
+		return buildBadges(t, false);
 	},
-	
+
 	'card-buttons': async function (t) {
 		const data = await EpicRel.readData(t, t.getContext().card);
 		return [
 			{
 				icon:     ICON_EPIC,
 				text:     data.epic ? 'Epic ändern' : 'Epic zuweisen',
+				condition: 'edit',
 				callback: showEpicPopup,
 			},
 			{
 				icon:     ICON_TASKS,
 				text:     'Tasks hinzufügen',
+				condition: 'edit',
 				callback: showTaskPopup,
 			},
 		];
 	},
-		
-	/* 'card-badges': function (t) {
-		return buildBadges(t, false);
-	},*/
-	
+
 	'card-detail-badges': function (t) {
 		return buildBadges(t, true);
 	},
