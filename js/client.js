@@ -136,6 +136,17 @@ async function buildBadges(t, detail) {
 }
 
 TrelloPowerUp.initialize({
+	'board-buttons': function (t) {
+		return [
+			{
+				text: 'Epic-Test', 
+				callback: function (t) {
+					return t.alert({message: 'Board-Button funktioniert!'}); 
+				}
+			}
+		];
+	},
+	
 	'card-buttons': async function (t) {
 		const data = await EpicRel.readData(t, t.getContext().card);
 		
