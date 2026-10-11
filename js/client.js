@@ -154,17 +154,25 @@ TrelloPowerUp.initialize({
 	},
 	
 	'card-buttons': async function (t) {
-		const data = await EpicRel.readData(t, t.getContext().card);
+		console.log('[epic-tasks] card-buttons fired, card:', t.getContext().card);
+		let data;
+		try {
+			data = await EpicRel.readData(t, t.getContext().card);
+			console.log('[epic-tasks] card-buttons data:', data);
+		} catch (err) {
+			console.error('[epic-tasks] card-buttons readData failed:', err);
+			return [];
+		}
 		
 		return [
 			{
-				// icon:   ICON_EPIC,   <- testweise auskommentiert
+				icon:      ICON_EPIC,
 				text:      data.epic ? 'Epic ändern' : 'Epic zuweisen',
 				condition: 'edit',
 				callback:  showEpicPopup,
 			},
 			{
-				// icon:   ICON_TASKS, <- testweise auskommentiert
+				icon:      ICON_TASKS,
 				text:      'Tasks hinzufügen',
 				condition: 'edit',
 				callback:  showTaskPopup,
