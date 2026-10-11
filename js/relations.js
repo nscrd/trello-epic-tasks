@@ -65,7 +65,7 @@
 	async function readData(t, cardId) {
 		let raw = null;
 		try {
-			raw = await t.get(cardId, 'shared');
+			raw = await t.get(cardId === t.getContext().card ? 'card' : cardId, 'shared');
 		}
 		catch (error) {
 			// Karte existiert nicht (mehr) auf diesem Board
