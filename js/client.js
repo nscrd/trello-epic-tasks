@@ -146,6 +146,12 @@ TrelloPowerUp.initialize({
 			}
 		];
 	},
+
+	'card-badges': function (t) {
+		return [
+			{text: 'TEST', color: 'blue'}
+		];
+	},
 	
 	'card-buttons': async function (t) {
 		const data = await EpicRel.readData(t, t.getContext().card);
@@ -166,9 +172,9 @@ TrelloPowerUp.initialize({
 		];
 	},
 	
-	'card-badges': function (t) {
+	/* 'card-badges': function (t) {
 		return buildBadges(t, false);
-	},
+	},*/
 	
 	'card-detail-badges': function (t) {
 		return buildBadges(t, true);
