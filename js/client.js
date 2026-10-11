@@ -158,20 +158,20 @@ TrelloPowerUp.initialize({
 		
 		return [
 			{
-				icon:      ICON_EPIC,
+				// icon:   ICON_EPIC,   <- testweise auskommentiert
 				text:      data.epic ? 'Epic ändern' : 'Epic zuweisen',
 				condition: 'edit',
 				callback:  showEpicPopup,
 			},
 			{
-				icon:      ICON_TASKS,
+				// icon:   ICON_TASKS, <- testweise auskommentiert
 				text:      'Tasks hinzufügen',
 				condition: 'edit',
 				callback:  showTaskPopup,
 			},
 		];
 	},
-	
+		
 	/* 'card-badges': function (t) {
 		return buildBadges(t, false);
 	},*/
